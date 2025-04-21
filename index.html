@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ERB Servicio Técnico Gama Blanca – Reparación y mantenimiento de lavadoras, frigoríficos, hornos, secadoras, lavavajillas, vitrocerámicas, calentadores, calderas, aires acondicionados y termotanques en Barcelona, Coruña, Valencia y Castellón de la Plana.">
+  <meta name="description" content="ERB Servicio Técnico Gama Blanca – Reparación y mantenimiento de lavadoras, frigoríficos, hornos, secadoras, lavavajillas, vitrocerámicas, calentadores, calderas, aires acondicionados y termotanques en Barcelona, Coruña, Valencia y Castellón de la Plana." />
   <link rel="icon" href="favicon.ico" />
   <title>ERB Servicio Técnico Gama Blanca</title>
 
@@ -177,7 +177,7 @@
 
   <section class="formulario">
     <h2>Solicita tu reparación</h2>
-    <form action="https://formsubmit.co/roscordtgn@gmail.com" method="POST">
+    <form id="reparacionForm" onsubmit="enviarFormulario(event)">
       <input type="hidden" name="_captcha" value="false">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autofocus>
@@ -188,31 +188,4 @@
       <label for="equipo">Electrodoméstico a reparar:</label>
       <select id="equipo" name="equipo" required>
         <option value="">Selecciona uno</option>
-        <option>Lavadora</option>
-        <option>Lavavajillas</option>
-        <option>Frigorífico</option>
-        <option>Horno</option>
-        <option>Secadora</option>
-        <option>Vitrocerámica</option>
-        <option>Calentador</option>
-        <option>Caldera</option>
-        <option>Aire acondicionado</option>
-        <option>Termotanque</option>
-        <option>Otro</option>
-      </select>
-      <label for="mensaje">Descripción del problema:</label>
-      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe el fallo o avería"></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 ERB Servicio Técnico | BARCELONA – CORUÑA – VALENCIA – CASTELLÓN DE LA PLANA</p>
-  </footer>
-
-  <a href="https://wa.me/34631449197" class="whatsapp" target="_blank" aria-label="Chatea con nosotros por WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16.03 3C9.373 3 4 8.373 4 15.031c0"/>...</svg>
-    Contáctanos
-  </a>
-</body>
-</html>
+        <option>Lavadora
