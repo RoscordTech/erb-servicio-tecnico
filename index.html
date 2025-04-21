@@ -61,7 +61,7 @@
       box-shadow: 0 4px 8px var(--sombra);
       outline: none;
     }
-    /* Contenedor para centrar el botón de WhatsApp */
+    /* Contenedor para centrar el botón de WhatsApp (Contáctanos) intermedio */
     .contact-container {
       text-align: center;
       margin: 20px 0;
@@ -176,6 +176,18 @@
       background-color: #064b93;
       outline: none;
     }
+    /* Mensaje de respuesta tras enviar formulario */
+    .form-response {
+      text-align: center;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      background: #e0ecff;
+      border-radius: 5px;
+      color: var(--azul-electrico);
+      font-weight: bold;
+      display: none;
+    }
     footer {
       background: var(--azul-electrico);
       color: var(--blanco);
@@ -202,7 +214,7 @@
     <a href="#servicios" class="btn">Ver Servicios</a>
   </header>
 
-  <!-- Botón "Contáctanos" integrado entre el héroe y la sección de servicios -->
+  <!-- Botón "Contáctanos" ubicado entre "Ver Servicios" y "¿Qué electrodomésticos reparamos?" -->
   <div class="contact-container">
     <a href="https://wa.me/34631449197" class="whatsapp" target="_blank" aria-label="Chatea con nosotros por WhatsApp">
       <img src="123.png" alt="Logo de WhatsApp" width="24" height="24">
@@ -268,7 +280,7 @@
 
   <section class="formulario">
     <h2>Solicita tu reparación</h2>
-    <form action="https://formsubmit.co/roscordtgn@gmail.com" method="POST">
+    <form id="contactForm" action="https://formsubmit.co/roscordtgn@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
       
       <label for="nombre">Nombre:</label>
@@ -310,10 +322,28 @@
       
       <button type="submit">Enviar</button>
     </form>
+    <!-- Contenedor para el mensaje tras enviar el formulario -->
+    <div id="formResponse" class="form-response">
+      Formulario enviado, nos contactaremos en breve.
+    </div>
   </section>
 
   <footer>
     <p>© 2025 ERB Servicio Técnico | BARCELONA – CORUÑA – VALENCIA – CASTELLÓN DE LA PLANA</p>
   </footer>
+
+  <script>
+    // Interceptamos el envío del formulario para mostrar el mensaje y quedarnos en la misma página.
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Evita el envío del formulario hacia la URL del action
+
+      // Opcional: realizar peticiones AJAX o procesar datos aquí
+
+      // Ocultar el formulario
+      this.style.display = "none";
+      // Mostrar el mensaje de respuesta
+      document.getElementById("formResponse").style.display = "block";
+    });
+  </script>
 </body>
 </html>
