@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ERB Servicio Técnico Gama Blanca – Reparación y mantenimiento de lavadoras, frigoríficos, hornos, secadoras, lavavajillas, vitrocerámicas, calentadores, calderas, aires acondicionados y termotanques en Barcelona, Coruña, Valencia y Castellón de la Plana." />
+  <meta name="description" content="ERB Servicio Técnico Gama Blanca – Reparación y mantenimiento de lavadoras, frigoríficos, hornos, secadoras, lavavajillas, vitrocerámicas, calentadores, calderas, aires acondicionados y termotanques en Barcelona, Coruña, Valencia y Castellón de la Plana.">
   <link rel="icon" href="favicon.ico" />
   <title>ERB Servicio Técnico Gama Blanca</title>
 
@@ -20,90 +20,156 @@
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0; font-family: 'Segoe UI', sans-serif;
-      background: var(--blanco); color: var(--azul-electrico);
+      margin: 0; 
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--blanco); 
+      color: var(--azul-electrico);
       line-height: 1.6;
     }
     .hero {
       background: linear-gradient(135deg, var(--azul-electrico), #003f7f);
-      color: var(--blanco); text-align: center;
-      padding: 100px 20px; animation: fadeIn 1.5s ease-in-out;
+      color: var(--blanco);
+      text-align: center;
+      padding: 100px 20px;
+      animation: fadeIn 1.5s ease-in-out;
     }
     .hero h1 { font-size: 2.5em; margin-bottom: 0.5em; }
     .hero p { font-size: 1.1em; margin-bottom: 1em; }
     .btn {
-      display: inline-block; background: var(--blanco);
-      color: var(--azul-electrico); padding: 0.75em 1.5em;
-      border: none; border-radius: 5px; text-decoration: none;
-      font-weight: bold; transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block;
+      background: var(--blanco);
+      color: var(--azul-electrico);
+      padding: 0.75em 1.5em;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .btn:hover, .btn:focus {
-      transform: scale(1.05); box-shadow: 0 4px 8px var(--sombra);
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px var(--sombra);
       outline: none;
     }
     .servicios {
-      padding: 60px 20px; background: var(--gris-claro);
+      padding: 60px 20px;
+      background: var(--gris-claro);
       text-align: center;
     }
     .servicios h2 { margin-bottom: 1em; font-size: 2em; }
     .cards {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px; max-width: 1000px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
     .card {
-      background: var(--blanco); padding: 20px;
-      border-radius: 10px; box-shadow: 0 2px 4px var(--sombra);
+      background: var(--blanco);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px var(--sombra);
       transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
       cursor: pointer;
     }
     .card:hover, .card:focus-within {
-      transform: translateY(-5px); box-shadow: 0 6px 12px var(--sombra);
-      background-color: #e0ecff; outline: none;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px var(--sombra);
+      background-color: #e0ecff;
+      outline: none;
     }
     .card .icon {
-      font-size: 48px; color: var(--azul-electrico);
+      font-size: 48px;
+      color: var(--azul-electrico);
       margin-bottom: 10px;
     }
     .card h3 { margin: 0.5em 0; color: var(--azul-electrico); }
     .formulario {
-      background: var(--blanco); padding: 40px 20px;
-      max-width: 600px; margin: 40px auto;
-      border-radius: 10px; box-shadow: 0 4px 10px var(--sombra);
+      background: var(--blanco);
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px var(--sombra);
     }
     .formulario h2 { text-align: center; margin-bottom: 20px; }
-    .formulario label { display: block; margin-bottom: 5px; font-weight: bold; }
-    .formulario input, .formulario textarea, .formulario select {
-      width: 100%; padding: 10px; margin-bottom: 15px;
-      border: 1px solid #ccc; border-radius: 5px; font-family: inherit;
+    .formulario label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
     }
-    .formulario input:focus, .formulario textarea:focus, .formulario select:focus {
-      border-color: var(--azul-electrico); outline: none;
+    .formulario input,
+    .formulario textarea,
+    .formulario select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+    .formulario input:focus,
+    .formulario textarea:focus,
+    .formulario select:focus {
+      border-color: var(--azul-electrico);
+      outline: none;
     }
     .formulario button {
-      background: var(--azul-electrico); color: var(--blanco);
-      border: none; padding: 10px 20px; border-radius: 5px;
-      cursor: pointer; font-weight: bold;
+      background: var(--azul-electrico);
+      color: var(--blanco);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
       transition: background-color 0.3s;
     }
     .formulario button:hover, .formulario button:focus {
-      background-color: #064b93; outline: none;
+      background-color: #064b93;
+      outline: none;
     }
     footer {
-      background: var(--azul-electrico); color: var(--blanco);
-      text-align: center; padding: 20px; font-size: 0.9em;
+      background: var(--azul-electrico);
+      color: var(--blanco);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
     }
     .whatsapp {
-      position: fixed; bottom: 20px; right: 20px;
-      background: var(--azul-electrico); color: var(--blanco);
-      padding: 12px 18px; border-radius: 50px;
-      text-decoration: none; box-shadow: 0 4px 8px var(--sombra);
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--azul-electrico);
+      color: var(--blanco);
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px var(--sombra);
       transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      align-items: center;
       font-weight: bold;
       z-index: 100;
     }
     .whatsapp:hover, .whatsapp:focus {
-      transform: scale(1.05); box-shadow: 0 6px 12px var(--sombra);
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px var(--sombra);
       outline: none;
+    }
+    .whatsapp img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -151,7 +217,7 @@
         <span class="material-icons-outlined icon">whatshot</span>
         <h3>Calentadores</h3>
         <p>Reparación e instalación de calentadores de agua.</p>
-      </div>  
+      </div>
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">fireplace</span>
         <h3>Calderas</h3>
@@ -172,14 +238,28 @@
 
   <section class="formulario">
     <h2>Solicita tu reparación</h2>
-    <form id="reparacionForm" onsubmit="enviarFormulario(event)">
+    <form action="https://formsubmit.co/roscordtgn@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
+      
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autofocus>
+      
       <label for="telefono">Teléfono:</label>
       <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" required>
+      
       <label for="email">Correo electrónico:</label>
       <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+      
+      <!-- Campo de Ubicación -->
+      <label for="ubicacion">Ubicación de servicio:</label>
+      <select id="ubicacion" name="ubicacion" required>
+        <option value="">Selecciona una ubicación</option>
+        <option>Barcelona</option>
+        <option>Coruña</option>
+        <option>Valencia</option>
+        <option>Castellón de la Plana</option>
+      </select>
+      
       <label for="equipo">Electrodoméstico a reparar:</label>
       <select id="equipo" name="equipo" required>
         <option value="">Selecciona uno</option>
@@ -195,8 +275,10 @@
         <option>Termotanque</option>
         <option>Otro</option>
       </select>
+      
       <label for="mensaje">Descripción del problema:</label>
       <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe el fallo o avería"></textarea>
+      
       <button type="submit">Enviar</button>
     </form>
   </section>
@@ -205,38 +287,9 @@
     <p>© 2025 ERB Servicio Técnico | BARCELONA – CORUÑA – VALENCIA – CASTELLÓN DE LA PLANA</p>
   </footer>
 
-  <!-- Botón de Contacto WhatsApp -->
-  <a href="https://wa.me/34631449197" class="whatsapp" target="_blank" aria-label="Contacto">Contacto</a>
-
-  <script>
-    function enviarFormulario(event) {
-      event.preventDefault();
-      const form = document.getElementById("reparacionForm");
-      const data = {
-        nombre: form.nombre.value,
-        telefono: form.telefono.value,
-        email: form.email.value,
-        equipo: form.equipo.value,
-        mensaje: form.mensaje.value
-      };
-      fetch("http://localhost:5000/submit", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data)
-      })
-      .then(res => {
-        if (res.ok) {
-          alert("✅ Solicitud enviada correctamente");
-          form.reset();
-        } else {
-          alert("❌ Hubo un error al enviar el formulario");
-        }
-      })
-      .catch(err => {
-        alert("⚠️ No se pudo conectar con el servidor local");
-        console.error(err);
-      });
-    }
-  </script>
+  <a href="https://wa.me/34631449197" class="whatsapp" target="_blank" aria-label="Chatea con nosotros por WhatsApp">
+    <img src="/attachments/5XptUArBnvQgXbjrjqmHL.png" alt="Logo de WhatsApp" width="24" height="24">
+    Contáctanos
+  </a>
 </body>
 </html>
