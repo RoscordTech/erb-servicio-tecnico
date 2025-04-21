@@ -3,33 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ERB Servicio Técnico Gama Blanca – Reparación y mantenimiento de electrodomésticos en Barcelona, Coruña, Valencia y Castellón de la Plana.">
+  <meta name="description" content="ERB Servicio Técnico de Gamma Blanca – Especialistas en reparación y mantenimiento de electrodomésticos en Barcelona, Coruña, Valencia y Castellón de la Plana.">
   <link rel="icon" href="favicon.ico" />
-  <title>ERB Servicio Técnico Gama Blanca</title>
-
-  <!-- Material Icons -->
+  <title>
+    <span class="lang-es">ERB Servicio Técnico de Gamma Blanca</span>
+    <span class="lang-ca">ERB Servei Tècnic de Gamma Blanca</span>
+    <span class="lang-va">ERB Servei Tècnic de Gamma Blanca</span>
+  </title>
+  
+  <!-- Material Icons Outlined -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
-
+  
   <style>
+    /* Por defecto: mostrar castellano, ocultar catalán y valenciano */
+    .lang-es { display: inline; }
+    .lang-ca, .lang-va { display: none; }
+
     :root {
       --azul-electrico: #0a5cb8;
       --blanco: #ffffff;
       --gris-claro: #f5f5f5;
       --sombra: rgba(0, 0, 0, 0.2);
     }
-    *, *::before, *::after { 
-      box-sizing: border-box; 
-    }
-    html { 
-      scroll-behavior: smooth; 
-    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0; 
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: var(--blanco); 
+      background: var(--blanco);
       color: var(--azul-electrico);
       line-height: 1.6;
     }
+    /* Selector de idioma */
+    #language-selector {
+      text-align: center;
+      margin: 20px;
+    }
+    #language-selector button {
+      margin: 0 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      border: 1px solid var(--azul-electrico);
+      background: var(--blanco);
+      color: var(--azul-electrico);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #language-selector button:hover {
+      background: var(--azul-electrico);
+      color: var(--blanco);
+    }
+    /* Cabecera (Hero) */
     .hero {
       background: linear-gradient(135deg, var(--azul-electrico), #003f7f);
       color: var(--blanco);
@@ -37,13 +61,13 @@
       padding: 100px 20px;
       animation: fadeIn 1.5s ease-in-out;
     }
-    .hero h1 { 
-      font-size: 2.5em; 
-      margin-bottom: 0.5em; 
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
     }
-    .hero p { 
-      font-size: 1.1em; 
-      margin-bottom: 1em; 
+    .hero p {
+      font-size: 1.1em;
+      margin-bottom: 1em;
     }
     .btn {
       display: inline-block;
@@ -61,7 +85,7 @@
       box-shadow: 0 4px 8px var(--sombra);
       outline: none;
     }
-    /* Contenedor para centrar el botón de WhatsApp (Contáctanos) intermedio */
+    /* Botón "Contáctanos" intermedio */
     .contact-container {
       text-align: center;
       margin: 20px 0;
@@ -89,14 +113,15 @@
       margin-right: 8px;
       vertical-align: middle;
     }
+    /* Sección de servicios */
     .servicios {
       padding: 60px 20px;
       background: var(--gris-claro);
       text-align: center;
     }
-    .servicios h2 { 
-      margin-bottom: 1em; 
-      font-size: 2em; 
+    .servicios h2 {
+      margin-bottom: 1em;
+      font-size: 2em;
     }
     .cards {
       display: grid;
@@ -124,10 +149,11 @@
       color: var(--azul-electrico);
       margin-bottom: 10px;
     }
-    .card h3 { 
-      margin: 0.5em 0; 
-      color: var(--azul-electrico); 
+    .card h3 {
+      margin: 0.5em 0;
+      color: var(--azul-electrico);
     }
+    /* Formulario */
     .formulario {
       background: var(--blanco);
       padding: 40px 20px;
@@ -136,9 +162,9 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px var(--sombra);
     }
-    .formulario h2 { 
-      text-align: center; 
-      margin-bottom: 20px; 
+    .formulario h2 {
+      text-align: center;
+      margin-bottom: 20px;
     }
     .formulario label {
       display: block;
@@ -171,23 +197,32 @@
       font-weight: bold;
       transition: background-color 0.3s;
     }
-    .formulario button:hover, 
+    .formulario button:hover,
     .formulario button:focus {
       background-color: #064b93;
       outline: none;
     }
-    /* Mensaje de respuesta tras enviar formulario */
+    /* Mensaje de respuesta del formulario */
     .form-response {
       text-align: center;
       margin: 20px auto;
       padding: 20px;
       max-width: 600px;
-      background: #e0ecff;
       border-radius: 5px;
-      color: var(--azul-electrico);
       font-weight: bold;
       display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
+    .form-response.success {
+      background: #e0ecff;
+      color: var(--azul-electrico);
+    }
+    .form-response.error {
+      background: #ffe0e0;
+      color: #a80000;
+    }
+    /* Footer */
     footer {
       background: var(--azul-electrico);
       color: var(--blanco);
@@ -196,153 +231,397 @@
       font-size: 0.9em;
     }
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+  <!-- Selector de idioma: castellano (es), catalán (ca) y valenciano (va) -->
+  <div id="language-selector">
+    <button onclick="setLanguage('es')">Castellano</button>
+    <button onclick="setLanguage('ca')">Català</button>
+    <button onclick="setLanguage('va')">Valencià</button>
+  </div>
+
   <header class="hero">
-    <h1>ERB Servicio Técnico Gama Blanca</h1>
-    <p>Especialistas en reparación y mantenimiento de electrodomésticos</p>
-    <a href="#servicios" class="btn">Ver Servicios</a>
+    <h1>
+      <span class="lang-es">ERB Servicio Técnico de Gamma Blanca</span>
+      <span class="lang-ca">ERB Servei Tècnic de Gamma Blanca</span>
+      <span class="lang-va">ERB Servei Tècnic de Gamma Blanca</span>
+    </h1>
+    <p>
+      <span class="lang-es">Especialistas en reparación y mantenimiento de electrodomésticos.</span>
+      <span class="lang-ca">Especialistes en reparació i manteniment d'electrodomèstics.</span>
+      <span class="lang-va">Especialistes en reparació i manteniment d'aparells electrodomèstics.</span>
+    </p>
+    <a href="#servicios" class="btn">
+      <span class="lang-es">Ver Servicios</span>
+      <span class="lang-ca">Veure Serveis</span>
+      <span class="lang-va">Veure Serveis</span>
+    </a>
   </header>
 
-  <!-- Botón "Contáctanos" ubicado entre "Ver Servicios" y "¿Qué electrodomésticos reparamos?" -->
+  <!-- Botón "Contáctanos" intermedio -->
   <div class="contact-container">
     <a href="https://wa.me/34631449197" class="whatsapp" target="_blank" aria-label="Chatea con nosotros por WhatsApp">
       <img src="123.png" alt="Logo de WhatsApp" width="24" height="24">
-      Contáctanos
+      <span class="lang-es">Contáctanos</span>
+      <span class="lang-ca">Contacta'ns</span>
+      <span class="lang-va">Contacta'ns</span>
     </a>
   </div>
 
   <section id="servicios" class="servicios">
-    <h2>¿Qué electrodomésticos reparamos?</h2>
+    <h2>
+      <span class="lang-es">¿Qué electrodomésticos reparamos?</span>
+      <span class="lang-ca">Quins electrodomèstics reparam?</span>
+      <span class="lang-va">Quins aparells electrodomèstics reparam?</span>
+    </h2>
     <div class="cards">
+      <!-- Tarjeta: Lavadoras -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">washing_machine</span>
-        <h3>Lavadoras</h3>
-        <p>Problemas de centrifugado, agua, ruidos o bloqueos.</p>
+        <h3>
+          <span class="lang-es">Lavadoras</span>
+          <span class="lang-ca">Rentadores</span>
+          <span class="lang-va">Rentadores</span>
+        </h3>
+        <p>
+          <span class="lang-es">Problemas de centrifugado, agua, ruidos o bloqueos.</span>
+          <span class="lang-ca">Problemes de centrifugació, aigua, sorolls o bloqueigs.</span>
+          <span class="lang-va">Problemes de centrifugació, aigua, sorolls o bloqueigs.</span>
+        </p>
       </div>
+      <!-- Tarjeta: Lavavajillas -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">cleaning_services</span>
-        <h3>Lavavajillas</h3>
-        <p>Fugas, errores de funcionamiento o mal lavado.</p>
+        <h3>
+          <span class="lang-es">Lavavajillas</span>
+          <span class="lang-ca">Rentavaixelles</span>
+          <span class="lang-va">Rentavaixelles</span>
+        </h3>
+        <p>
+          <span class="lang-es">Fugas, mal funcionamiento o limpieza deficiente.</span>
+          <span class="lang-ca">Fuites, mal funcionament o rentat deficient.</span>
+          <span class="lang-va">Fuites, mal funcionament o rentat deficient.</span>
+        </p>
       </div>
+      <!-- Tarjeta: Frigoríficos y Congeladores -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">ac_unit</span>
-        <h3>Frigoríficos y congeladores</h3>
-        <p>No enfría, congela mal o hace ruidos inusuales.</p>
+        <h3>
+          <span class="lang-es">Frigoríficos y Congeladores</span>
+          <span class="lang-ca">Neveres i congeladors</span>
+          <span class="lang-va">Neveres i congeladors</span>
+        </h3>
+        <p>
+          <span class="lang-es">No enfrían correctamente, problemas de congelación o ruidos inusuales.</span>
+          <span class="lang-ca">No refreden correctament, problemes de congelació o sorolls inusuals.</span>
+          <span class="lang-va">No refreden correctament, problemes de congelació o sorolls inusuals.</span>
+        </p>
       </div>
+      <!-- Tarjeta: Hornos -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">kitchen</span>
-        <h3>Hornos</h3>
-        <p>No calienta, problemas con resistencias o sensores.</p>
+        <h3>
+          <span class="lang-es">Hornos</span>
+          <span class="lang-ca">Forns</span>
+          <span class="lang-va">Forns</span>
+        </h3>
+        <p>
+          <span class="lang-es">No calientan o presentan fallos en resistencias o sensores.</span>
+          <span class="lang-ca">No escalfen o presenten fallades en resistències o sensors.</span>
+          <span class="lang-va">No escalfen o presenten fallades en resistències o sensors.</span>
+        </p>
       </div>
+      <!-- Tarjeta: Secadoras -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">local_laundry_service</span>
-        <h3>Secadoras</h3>
-        <p>Problemas de calor, giro o exceso de humedad.</p>
+        <h3>
+          <span class="lang-es">Secadoras</span>
+          <span class="lang-ca">Assecadores</span>
+          <span class="lang-va">Assecadores</span>
+        </h3>
+        <p>
+          <span class="lang-es">Problemas de calor, giro o humedad excesiva.</span>
+          <span class="lang-ca">Problemes de calor, gir o humitat excessiva.</span>
+          <span class="lang-va">Problemes de calor, gir o humitat excessiva.</span>
+        </p>
       </div>
+      <!-- Tarjeta: Vitrocerámicas -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">bolt</span>
-        <h3>Vitrocerámicas y placas de inducción</h3>
-        <p>Fallo en zonas de calor, sensores o mandos.</p>
+        <h3>
+          <span class="lang-es">Vitrocerámicas</span>
+          <span class="lang-ca">Vitrocèrmiques</span>
+          <span class="lang-va">Vitrocèrmiques</span>
+        </h3>
+        <p>
+          <span class="lang-es">Problemas en zonas de calor, sensores o controles.</span>
+          <span class="lang-ca">Problemes en zones de calor, sensors o controls.</span>
+          <span class="lang-va">Problemes en zones de calor, sensors o controls.</span>
+        </p>
       </div>
+      <!-- Tarjeta: Calentadores de Agua -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">whatshot</span>
-        <h3>Calentadores</h3>
-        <p>Reparación e instalación de calentadores de agua.</p>
+        <h3>
+          <span class="lang-es">Calentadores de Agua</span>
+          <span class="lang-ca">Escalfadors d'aigua</span>
+          <span class="lang-va">Escalfadors d'aigua</span>
+        </h3>
+        <p>
+          <span class="lang-es">Reparación e instalación de calentadores de agua.</span>
+          <span class="lang-ca">Reparació i instal·lació d'escalfadors d'aigua.</span>
+          <span class="lang-va">Reparació i instal·lació d'escalfadors d'aigua.</span>
+        </p>
       </div>
+      <!-- Tarjeta: Calderas -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">fireplace</span>
-        <h3>Calderas</h3>
-        <p>Mantenimiento y reparación de calderas domésticas.</p>
+        <h3>
+          <span class="lang-es">Calderas</span>
+          <span class="lang-ca">Calderes</span>
+          <span class="lang-va">Calderes</span>
+        </h3>
+        <p>
+          <span class="lang-es">Mantenimiento y reparación de calderas domésticas.</span>
+          <span class="lang-ca">Manteniment i reparació de calderes domèstiques.</span>
+          <span class="lang-va">Manteniment i reparació de calderes domèstiques.</span>
+        </p>
       </div>
+      <!-- Tarjeta: Aires Acondicionados -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">air</span>
-        <h3>Aires acondicionados</h3>
-        <p>Instalación y reparación de sistemas de climatización.</p>
+        <h3>
+          <span class="lang-es">Aires Acondicionados</span>
+          <span class="lang-ca">Aires condicionats</span>
+          <span class="lang-va">Aires condicionats</span>
+        </h3>
+        <p>
+          <span class="lang-es">Instalación y reparación de sistemas de climatización.</span>
+          <span class="lang-ca">Instal·lació i reparació de sistemes de climatització.</span>
+          <span class="lang-va">Instal·lació i reparació de sistemes de climatització.</span>
+        </p>
       </div>
+      <!-- Tarjeta: Termotanques -->
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">hot_tub</span>
-        <h3>Termotanques</h3>
-        <p>Reparación y mantenimiento de termotanques eléctricos.</p>
+        <h3>
+          <span class="lang-es">Termotanques</span>
+          <span class="lang-ca">Termotancs</span>
+          <span class="lang-va">Termotancs</span>
+        </h3>
+        <p>
+          <span class="lang-es">Reparación y mantenimiento de termotanques.</span>
+          <span class="lang-ca">Reparació i manteniment de termotancs.</span>
+          <span class="lang-va">Reparació i manteniment de termotancs.</span>
+        </p>
       </div>
     </div>
   </section>
 
   <section class="formulario">
-    <h2>Solicita tu reparación</h2>
+    <h2>
+      <span class="lang-es">Solicita tu reparación</span>
+      <span class="lang-ca">Sol·licita la teva reparació</span>
+      <span class="lang-va">Sol·licita la teua reparació</span>
+    </h2>
     <form id="contactForm" action="https://formsubmit.co/roscordtgn@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
       
-      <label for="nombre">Nombre:</label>
+      <label for="nombre">
+        <span class="lang-es">Nombre:</span>
+        <span class="lang-ca">Nom:</span>
+        <span class="lang-va">Nom:</span>
+      </label>
       <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autofocus>
       
-      <label for="telefono">Teléfono:</label>
+      <label for="telefono">
+        <span class="lang-es">Teléfono:</span>
+        <span class="lang-ca">Telèfon:</span>
+        <span class="lang-va">Telèfon:</span>
+      </label>
       <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" required>
       
-      <label for="email">Correo electrónico:</label>
+      <label for="email">
+        <span class="lang-es">Correo electrónico:</span>
+        <span class="lang-ca">Correu electrònic:</span>
+        <span class="lang-va">Correu electrònic:</span>
+      </label>
       <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
       
-      <label for="ubicacion">Ubicación de servicio:</label>
+      <label for="ubicacion">
+        <span class="lang-es">Ubicación del servicio:</span>
+        <span class="lang-ca">Ubicació del servei:</span>
+        <span class="lang-va">Ubicació del servei:</span>
+      </label>
       <select id="ubicacion" name="ubicacion" required>
         <option value="">Selecciona una ubicación</option>
-        <option>Barcelona</option>
-        <option>Coruña</option>
-        <option>Valencia</option>
-        <option>Castellón de la Plana</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Coruña">La Coruña</option>
+        <option value="Valencia">Valencia</option>
+        <option value="Castellón de la Plana">Castellón de la Plana</option>
       </select>
       
-      <label for="equipo">Electrodoméstico a reparar:</label>
+      <label for="equipo">
+        <span class="lang-es">Electrodoméstico a reparar:</span>
+        <span class="lang-ca">Electrodomèstic a reparar:</span>
+        <span class="lang-va">Electrodomèstic a reparar:</span>
+      </label>
       <select id="equipo" name="equipo" required>
         <option value="">Selecciona uno</option>
-        <option>Lavadora</option>
-        <option>Lavavajillas</option>
-        <option>Frigorífico</option>
-        <option>Horno</option>
-        <option>Secadora</option>
-        <option>Vitrocerámica</option>
-        <option>Calentador</option>
-        <option>Caldera</option>
-        <option>Aire acondicionado</option>
-        <option>Termotanque</option>
-        <option>Otro</option>
+        <option value="Lavadora">Lavadoras</option>
+        <option value="Lavavajillas">Lavavajillas</option>
+        <option value="Frigorífico">Frigoríficos y Congeladores</option>
+        <option value="Horno">Hornos</option>
+        <option value="Secadora">Secadoras</option>
+        <option value="Vitrocerámica">Vitrocerámicas</option>
+        <option value="Calentador">Calentadores de Agua</option>
+        <option value="Caldera">Calderas</option>
+        <option value="Aire acondicionado">Aires Acondicionados</option>
+        <option value="Termotanque">Termotanques</option>
+        <option value="Otro">Otro</option>
       </select>
       
-      <label for="mensaje">Descripción del problema:</label>
-      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe el fallo o avería"></textarea>
+      <label for="mensaje">
+        <span class="lang-es">Descripción del problema:</span>
+        <span class="lang-ca">Descripció del problema:</span>
+        <span class="lang-va">Descripció del problema:</span>
+      </label>
+      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe el problema" required></textarea>
       
-      <button type="submit">Enviar</button>
+      <button type="submit">
+        <span class="lang-es">Enviar</span>
+        <span class="lang-ca">Envia</span>
+        <span class="lang-va">Envia</span>
+      </button>
     </form>
-    <!-- Contenedor para el mensaje tras enviar el formulario -->
-    <div id="formResponse" class="form-response">
-      Formulario enviado, nos contactaremos en breve.
-    </div>
+    <div id="formResponse" class="form-response" role="alert" aria-live="assertive"></div>
   </section>
 
   <footer>
-    <p>© 2025 ERB Servicio Técnico | BARCELONA – CORUÑA – VALENCIA – CASTELLÓN DE LA PLANA</p>
+    <p>
+      <span class="lang-es">© 2025 ERB Servicio Técnico de Gamma Blanca | BARCELONA – CORUÑA – VALENCIA – CASTELLÓN DE LA PLANA</span>
+      <span class="lang-ca">© 2025 ERB Servei Tècnic de Gamma Blanca | BARCELONA – CORUÑA – VALÈNCIA – CASTELLÓ DE LA PLANA</span>
+      <span class="lang-va">© 2025 ERB Servei Tècnic de Gamma Blanca | BARCELONA – CORUÑA – VALÈNCIA – CASTELLÓ DE LA PLANA</span>
+    </p>
   </footer>
 
   <script>
-    // Interceptamos el envío del formulario para mostrar el mensaje y quedarnos en la misma página.
+    // Diccionario de traducciones para placeholders y textos de opción por defecto
+    const translations = {
+      es: {
+        placeholder: {
+          nombre: "Tu nombre",
+          telefono: "+34 600 000 000",
+          email: "tu@correo.com",
+          mensaje: "Describe el problema"
+        },
+        text: {
+          defaultUbicacion: "Selecciona una ubicación",
+          defaultElectrodomestico: "Selecciona uno"
+        }
+      },
+      ca: {
+        placeholder: {
+          nombre: "El teu nom",
+          telefono: "+34 600 000 000",
+          email: "el teu@correu.com",
+          mensaje: "Descriu el problema"
+        },
+        text: {
+          defaultUbicacion: "Selecciona una ubicació",
+          defaultElectrodomestico: "Selecciona un"
+        }
+      },
+      va: {
+        placeholder: {
+          nombre: "El teu nom",
+          telefono: "+34 600 000 000",
+          email: "el teu@correu.com",
+          mensaje: "Descriu el problema"
+        },
+        text: {
+          defaultUbicacion: "Selecciona una ubicació",
+          defaultElectrodomestico: "Selecciona un"
+        }
+      }
+    };
+
+    // Función para actualizar los placeholders y el texto de la opción por defecto
+    function updatePlaceholders(lang) {
+      document.getElementById('nombre').placeholder = translations[lang].placeholder.nombre;
+      document.getElementById('telefono').placeholder = translations[lang].placeholder.telefono;
+      document.getElementById('email').placeholder = translations[lang].placeholder.email;
+      document.getElementById('mensaje').placeholder = translations[lang].placeholder.mensaje;
+      document.getElementById('ubicacion').options[0].text = translations[lang].text.defaultUbicacion;
+      document.getElementById('equipo').options[0].text = translations[lang].text.defaultElectrodomestico;
+    }
+
+    // Función para cambiar el idioma
+    function setLanguage(lang) {
+      const languages = ['es', 'ca', 'va'];
+      languages.forEach(function(l) {
+        const elems = document.getElementsByClassName('lang-' + l);
+        for (let i = 0; i < elems.length; i++) {
+          elems[i].style.display = (l === lang) ? 'inline' : 'none';
+        }
+      });
+      updatePlaceholders(lang);
+    }
+
+    // Se establece por defecto el castellano
+    setLanguage('es');
+
+    // Capturamos el envío del formulario y lo procesamos de forma asíncrona
     document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // Evita el envío del formulario hacia la URL del action
+      e.preventDefault(); // Evitamos el envío tradicional
 
-      // Opcional: realizar peticiones AJAX o procesar datos aquí
+      const form = this;
+      const submitButton = form.querySelector("button");
+      const responseDiv = document.getElementById("formResponse");
 
-      // Ocultar el formulario
-      this.style.display = "none";
-      // Mostrar el mensaje de respuesta
-      document.getElementById("formResponse").style.display = "block";
+      // Deshabilitar el botón para evitar envíos múltiples
+      submitButton.disabled = true;
+      // Mostrar mensaje de "Enviando..."
+      responseDiv.textContent = "Enviando...";
+      responseDiv.className = "form-response"; // Limpiar clases previas
+      responseDiv.style.display = "block";
+      responseDiv.style.opacity = "1";
+
+      // Envío asíncrono con fetch
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        return response.text().then(text => {
+          if (response.ok) {
+            return text;
+          } else {
+            throw new Error(text);
+          }
+        });
+      })
+      .then(() => {
+        // Éxito: ocultamos el formulario y mostramos el mensaje de éxito
+        form.style.display = "none";
+        responseDiv.textContent = "Formulario enviado, nos contactaremos en breve.";
+        responseDiv.classList.add("success");
+        responseDiv.style.opacity = "1";
+      })
+      .catch(error => {
+        // Error: mostramos el mensaje de error y reactivamos el botón
+        responseDiv.textContent = "Error: " + error.message + ". Por favor, inténtalo de nuevo.";
+        responseDiv.classList.add("error");
+        responseDiv.style.opacity = "1";
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+      });
     });
   </script>
 </body>
