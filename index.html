@@ -61,6 +61,34 @@
       box-shadow: 0 4px 8px var(--sombra);
       outline: none;
     }
+    /* Contenedor para centrar el botón de WhatsApp */
+    .contact-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .whatsapp {
+      display: inline-flex;
+      align-items: center;
+      background: var(--azul-electrico);
+      color: var(--blanco);
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px var(--sombra);
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-weight: bold;
+    }
+    .whatsapp:hover, .whatsapp:focus {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px var(--sombra);
+      outline: none;
+    }
+    .whatsapp img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
     .servicios {
       padding: 60px 20px;
       background: var(--gris-claro);
@@ -155,32 +183,6 @@
       padding: 20px;
       font-size: 0.9em;
     }
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--azul-electrico);
-      color: var(--blanco);
-      padding: 12px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 4px 8px var(--sombra);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      align-items: center;
-      font-weight: bold;
-      z-index: 100;
-    }
-    .whatsapp:hover, .whatsapp:focus {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px var(--sombra);
-      outline: none;
-    }
-    .whatsapp img {
-      width: 24px;
-      height: 24px;
-      margin-right: 8px;
-    }
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -199,6 +201,14 @@
     <p>Especialistas en reparación y mantenimiento de electrodomésticos</p>
     <a href="#servicios" class="btn">Ver Servicios</a>
   </header>
+
+  <!-- Botón "Contáctanos" integrado entre el héroe y la sección de servicios -->
+  <div class="contact-container">
+    <a href="https://wa.me/34631449197" class="whatsapp" target="_blank" aria-label="Chatea con nosotros por WhatsApp">
+      <img src="123.png" alt="Logo de WhatsApp" width="24" height="24">
+      Contáctanos
+    </a>
+  </div>
 
   <section id="servicios" class="servicios">
     <h2>¿Qué electrodomésticos reparamos?</h2>
@@ -270,7 +280,6 @@
       <label for="email">Correo electrónico:</label>
       <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
       
-      <!-- Campo de Ubicación -->
       <label for="ubicacion">Ubicación de servicio:</label>
       <select id="ubicacion" name="ubicacion" required>
         <option value="">Selecciona una ubicación</option>
@@ -306,10 +315,5 @@
   <footer>
     <p>© 2025 ERB Servicio Técnico | BARCELONA – CORUÑA – VALENCIA – CASTELLÓN DE LA PLANA</p>
   </footer>
-
-  <a href="https://wa.me/34631449197" class="whatsapp" target="_blank" aria-label="Chatea con nosotros por WhatsApp">
-    <img src="123.png" alt="Logo de WhatsApp" width="24" height="24">
-    Contáctanos
-  </a>
 </body>
 </html>
