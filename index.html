@@ -98,17 +98,12 @@
       padding: 12px 18px; border-radius: 50px;
       text-decoration: none; box-shadow: 0 4px 8px var(--sombra);
       transition: transform 0.3s, box-shadow 0.3s;
-      display: flex; align-items: center; font-weight: bold;
+      font-weight: bold;
       z-index: 100;
     }
     .whatsapp:hover, .whatsapp:focus {
       transform: scale(1.05); box-shadow: 0 6px 12px var(--sombra);
       outline: none;
-    }
-    .whatsapp svg { width: 24px; height: 24px; fill: var(--blanco); margin-right: 8px; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -156,7 +151,7 @@
         <span class="material-icons-outlined icon">whatshot</span>
         <h3>Calentadores</h3>
         <p>Reparación e instalación de calentadores de agua.</p>
-      </div>
+      </div>  
       <div class="card" tabindex="0">
         <span class="material-icons-outlined icon">fireplace</span>
         <h3>Calderas</h3>
@@ -188,4 +183,60 @@
       <label for="equipo">Electrodoméstico a reparar:</label>
       <select id="equipo" name="equipo" required>
         <option value="">Selecciona uno</option>
-        <option>Lavadora
+        <option>Lavadora</option>
+        <option>Lavavajillas</option>
+        <option>Frigorífico</option>
+        <option>Horno</option>
+        <option>Secadora</option>
+        <option>Vitrocerámica</option>
+        <option>Calentador</option>
+        <option>Caldera</option>
+        <option>Aire acondicionado</option>
+        <option>Termotanque</option>
+        <option>Otro</option>
+      </select>
+      <label for="mensaje">Descripción del problema:</label>
+      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe el fallo o avería"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 ERB Servicio Técnico | BARCELONA – CORUÑA – VALENCIA – CASTELLÓN DE LA PLANA</p>
+  </footer>
+
+  <!-- Botón de Contacto WhatsApp -->
+  <a href="https://wa.me/34631449197" class="whatsapp" target="_blank" aria-label="Contacto">Contacto</a>
+
+  <script>
+    function enviarFormulario(event) {
+      event.preventDefault();
+      const form = document.getElementById("reparacionForm");
+      const data = {
+        nombre: form.nombre.value,
+        telefono: form.telefono.value,
+        email: form.email.value,
+        equipo: form.equipo.value,
+        mensaje: form.mensaje.value
+      };
+      fetch("http://localhost:5000/submit", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (res.ok) {
+          alert("✅ Solicitud enviada correctamente");
+          form.reset();
+        } else {
+          alert("❌ Hubo un error al enviar el formulario");
+        }
+      })
+      .catch(err => {
+        alert("⚠️ No se pudo conectar con el servidor local");
+        console.error(err);
+      });
+    }
+  </script>
+</body>
+</html>
